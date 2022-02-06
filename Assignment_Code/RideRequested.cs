@@ -1,16 +1,15 @@
 ﻿using System;
 
-public class RideState {
+public class RideRequestedState : RideState {
 {
+private:
 
-private: 
-	
-	Ride ride;
+public:
 
-	public RideState(Ride r)
-	{
-		ride = r;
-	}
+	void setState(RideState s)
+    {
+		state = s
+    }
 
 	virtual void cancelRide(Ride ride)
     {

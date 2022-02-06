@@ -9,11 +9,20 @@ private:
 	string destination;
 	DateTime startTime;
 	DateTime endTime;
-	RideState rideState;
 	Receipt receipt;
 
 	DriverAccount driver;
 	CustomerAccount customer;
+
+	RideState rideRequestedState;
+	RideState driverAssignedState;
+	RideState customerCancelledState;
+	RideState customerWaitingState;
+	RideState driverArrivedState;
+	RideState rideStartedState;
+	RideState rideDoneState;
+
+	RideState state;
 
 	public:
 	Ride(departing, dropOffPoint, start)
@@ -23,8 +32,22 @@ private:
 		startTime = start;
 		// auto increment ref no
 
-		rideState = new RideState(this);
-		receipt = new Receipt(this)
+		rideRequestedState = new RideRequestedState(this);
+		driverAssignedState = new DriverAssignedState(this);
+		customerCancelledState = new CustomerCancelledState(this);
+		customerWaitingState = new CustomerWaitingState(this);
+		driverArrivedState = new DriverArrivedState(this);
+		rideStartedState = new RideStartedState(this);
+		rideDoneState = new RideDoneState(this);
+
+		setState(rideRequestedState)
+
+	}
+
+	void setState(RideState s)
+	{
+		state = s
+
 	}
 
 	void calculateFare()
@@ -49,5 +72,13 @@ private:
 
 	public RideState State { get; set; }
 	public Receipt Receipt { get; set; }
+
+	public RideState RideRequestedState { get; set; }
+	public RideState DriverAssignedState { get; set; }
+	public RideState CustomerCancelledState { get; set; }
+	public RideState CustomerWaitingState { get; set; }
+	public RideState DriverArrivedState { get; set; }
+	public RideState RideStartedState { get; set; }
+	public RideState RideDoneState { get; set; }
 
 }
