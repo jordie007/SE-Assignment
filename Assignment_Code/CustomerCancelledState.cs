@@ -21,7 +21,6 @@ public:
     }
 
     public Ride Ride { get; set; }
-
     public string Name { get; set; }
 
 }
