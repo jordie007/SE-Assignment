@@ -1,17 +1,21 @@
 ﻿using System;
 
-public class RideRequestedState : RideState {
+public class CustomerCancelledState : RideState {
 {
 private:
 
+    Ride ride;
+    string name;
+
 public:
 
-	void setState(RideState s)
+	CustomerCancelledState(Ride r, string n)
     {
-		state = s
+        ride = r;
+        name = n;
     }
 
-    override void cancelRide(Ride ride)
+    void cancelRide(Ride ride)
     {
         Console.WriteLine("Ride already cancelled.");
     }

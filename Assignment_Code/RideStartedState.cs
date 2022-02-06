@@ -1,17 +1,21 @@
 ﻿using System;
 
-public class RideRequestedState : RideState {
+public class RideStartedState : RideState {
 {
 private:
 
+	Ride ride;
+	string name;
+
 public:
 
-	void setState(RideState s)
-    {
-        state = s
-    }
+	RideStartedState(Ride r, string n)
+	{
+		ride = r;
+		name = n;
+	}
 
-    override void cancelRide(Ride ride)
+	override void cancelRide(Ride ride)
     {
         Console.WriteLine("Ride is already underway. Ride can no longer be cancelled.");
     }
