@@ -73,4 +73,8 @@ public:
 		Console.WriteLine("Ride has been cancelled");
 	}
 
+	public Ride Ride { get; set; }
+
+	public string Name { get; set; }
+
 }

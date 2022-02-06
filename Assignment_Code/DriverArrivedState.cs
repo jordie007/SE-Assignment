@@ -72,4 +72,8 @@ public:
 		ride.Receipt.Status = "Refunded";
 		Console.WriteLine("Ride has been cancelled");
 	}
+
+	public Ride Ride { get; set; }
+
+	public string Name { get; set; }
 }

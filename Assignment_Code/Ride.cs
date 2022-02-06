@@ -34,13 +34,13 @@ private:
 		startTime = start;
 		// auto increment ref no
 
-		rideRequestedState = new RideRequestedState(this);
-		driverAssignedState = new DriverAssignedState(this);
-		customerCancelledState = new CustomerCancelledState(this);
-		customerWaitingState = new CustomerWaitingState(this);
-		driverArrivedState = new DriverArrivedState(this);
-		rideStartedState = new RideStartedState(this);
-		rideDoneState = new RideDoneState(this);
+		rideRequestedState = new RideRequestedState(this, "Ride Requested");
+		driverAssignedState = new DriverAssignedState(this, "Driver Assigned");
+		customerCancelledState = new CustomerCancelledState(this, "Customer Cancelled");
+		customerWaitingState = new CustomerWaitingState(this, "Customer Waiting");
+		driverArrivedState = new DriverArrivedState(this, "Driver Arrived");
+		rideStartedState = new RideStartedState(this, "Ride Started");
+		rideDoneState = new RideDoneState(this, "Ride Done");
 
 		setState(rideRequestedState);
 

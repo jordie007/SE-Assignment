@@ -19,4 +19,9 @@ public:
     {
         Console.WriteLine("Ride already cancelled.");
     }
+
+    public Ride Ride { get; set; }
+
+    public string Name { get; set; }
+
 }

@@ -26,5 +26,6 @@ public:
 	public decimal Amount { get; set; }
 	public string Status { get; set; }
 	public int PointsEarned { get; set; }
+	public Ride Ride { get; set; }
 	public List<Payment> PaymentList { get; set; }
 }

@@ -15,8 +15,12 @@ public:
 		name = n;
 	}
 
-	override void cancelRide(Ride ride)
+	void cancelRide(Ride ride)
     {
         Console.WriteLine("Ride is already underway. Ride can no longer be cancelled.");
     }
+
+	public Ride Ride { get; set; }
+
+	public string Name { get; set; }
 }
