@@ -7,7 +7,9 @@ private:
 	
 	Ride ride;
 
-	public RideState(Ride r)
+public:
+
+	RideState(Ride r)
 	{
 		ride = r;
 	}
@@ -54,7 +56,7 @@ private:
 			}
 		}
 
-		setState(customerCancelledState);
+		ride.setState(customerCancelledState);
 
 		// observer pattern
 

@@ -1,6 +1,6 @@
 ﻿using System;
 
-public class Ride
+public class Ride : Subject
 {
 private:
 	int refNo;
@@ -24,6 +24,8 @@ private:
 
 	RideState state;
 
+	private List<Observer> observers; // user accounts
+
 	public:
 	Ride(departing, dropOffPoint, start)
 	{
@@ -40,15 +42,34 @@ private:
 		rideStartedState = new RideStartedState(this);
 		rideDoneState = new RideDoneState(this);
 
-		setState(rideRequestedState)
+		setState(rideRequestedState);
 
+		observers = new List<Observer>();
 	}
 
 	void setState(RideState s)
 	{
+		notifyObservers();
 		state = s
 
 	}
+
+	public void registerObserver(Observer o)
+	{
+		observers.Add(o);
+	}
+
+	public void removeObserver(Observer o)
+	{
+		observers.Remove(i);
+	}
+
+	public void notifyObservers()
+	{
+		foreach (Observer o in observers)
+			o.update(this);
+	}
+
 
 	void calculateFare()
 	{
@@ -57,7 +78,7 @@ private:
 
 	void cancelRide()
     {
-		rideState.cancelRide()
+		rideState.cancelRide();
 	}
 
 	public int RefNo { get; set; }
