@@ -1,4 +1,6 @@
-﻿using System;
+﻿#pragma once
+using System;
+using namespace std;
 
 public interface Observer
 {
